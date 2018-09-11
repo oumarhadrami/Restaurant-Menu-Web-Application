@@ -11,8 +11,16 @@
     <form action="{{url_for('newMenuItem', restaurant_id=restaurant_id )}}" method='POST'>
 
         <p>Name:</p>
-
         <input type='text' size='30' name='name'>
+
+        <br>
+        <p>Price:</p>
+        <input type='text' size='30' name='price'>
+
+        <br>
+        <p>Description:</p>
+        <input type='text' size='30' name='description'>
+
 
         <input type='submit' value='Create'>
 
