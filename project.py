@@ -17,6 +17,8 @@ session = DBSession()
 def welcome():
     return "WELCOME TO OUR RESTAURANT!"
 
+# Create a route to display the menu items for the chosen retaurant
+
 
 @app.route('/restaurants/<int:restaurant_id>/')
 def restaurantMenu(restaurant_id):
@@ -24,7 +26,7 @@ def restaurantMenu(restaurant_id):
     items = session.query(MenuItem).filter_by(restaurant_id=restaurant.id)
     return render_template('menu.html', restaurant=restaurant, items=items)
 
-# Task 1: Create route for newMenuItem function here
+# Create route for adding a new menu item
 
 
 @app.route('/restaurants/<int:restaurant_id>/new/', methods=['GET', 'POST'])
@@ -44,7 +46,7 @@ def newMenuItem(restaurant_id):
     else:
         return render_template('newmenuitem.html', restaurant_id=restaurant_id)
 
-# Task 2: Create route for editMenuItem function here
+# Create route for editing a new menu item
 
 
 @app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/edit/', methods=['GET', 'POST'])
@@ -61,7 +63,7 @@ def editMenuItem(restaurant_id, menu_id):
     else:
         return render_template('editmenuitem.html', restaurant_id=restaurant_id, menu_id=menu_id, i=editedItem)
 
-# Task 3: Create a route for deleteMenuItem function here
+# Create a route for deleting a menu item
 
 
 @app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/delete',
